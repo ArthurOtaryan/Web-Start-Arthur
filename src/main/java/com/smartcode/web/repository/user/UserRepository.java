@@ -23,4 +23,6 @@ public interface UserRepository {
     void deleteAll() throws SQLException;
 
     void deleteById(int userId) throws SQLException;
+
+    User getByUsername(String username);
 }

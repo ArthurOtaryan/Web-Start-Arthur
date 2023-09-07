@@ -1,5 +1,6 @@
 package com.smartcode.web.service.user.impl;
 
+import com.smartcode.web.exception.ValidationException;
 import com.smartcode.web.model.User;
 import com.smartcode.web.repository.user.UserRepository;
 import com.smartcode.web.service.user.UserService;
@@ -42,7 +43,6 @@ public class UserServiceImpl implements UserService {
     public void register(User user) throws SQLException {
         try {
             connection.setAutoCommit(false);
-
             if (userRepository.usernameExists(user.getUsername())) {
                 System.out.println("Username already exists, rolling back.");
                 connection.rollback();
@@ -114,6 +114,21 @@ public class UserServiceImpl implements UserService {
         return userRepository.getAll();
     }
 
+    @Override
+    public void login(String username, String password) {
+      User ByUsername =userRepository.getByUsername(username);
+      if(ByUsername==null){
+          throw new ValidationException("Invalid username");
+      }
+      else if(!ByUsername.getPassword().equals(password)){
+          throw new ValidationException("Invalid password");
+      }
+      }
+
+
 
     }
+
+
+
 
