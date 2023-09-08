@@ -18,7 +18,7 @@
             background: linear-gradient(to bottom, #e73b28, #1F1C18);
         }
 
-        .container {git init
+        .container {
             background: radial-gradient(#1F1C18, #e5402d);
             text-align: center;
             padding: 20px;
