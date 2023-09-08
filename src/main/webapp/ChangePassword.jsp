@@ -15,11 +15,11 @@
             align-items: center;
             height: 100vh;
             margin: 0;
-            background: linear-gradient(to bottom,#8E0E00, #1F1C18);
+            background: linear-gradient(to bottom, #e73b28, #1F1C18);
         }
 
-        .container {
-            background: radial-gradient(#1F1C18,#8E0E00);
+        .container {git init
+            background: radial-gradient(#1F1C18, #e5402d);
             text-align: center;
             padding: 20px;
             border-radius: 10px;
