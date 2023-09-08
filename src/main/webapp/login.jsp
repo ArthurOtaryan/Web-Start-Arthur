@@ -18,13 +18,12 @@
             align-items: center;
         }
 
-        table {
-            background: linear-gradient(135deg, #63666A, #fff766);
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        .form-container {
+            background: linear-gradient(135deg, #fff766, #63666A);
+            text-align: center;
             padding: 20px;
-            width: 300px;
+            border-radius: 15px;
+            box-shadow: 0 0 10px rgba(220, 187, 187, 0.2);
         }
 
         h1 {
@@ -64,11 +63,13 @@
 <body>
 <h1>Login</h1>
 <%=request.getAttribute("message") != null ? request.getAttribute("message") : ""%>
-
+<div class="form-container">
 <form action="/login" method="post">
     Username <input type="text" name="username"></br>
     Password <input type="password" name="password"></br>
     <input type="submit" value="login">
 </form>
+</div>
+
 </body>
 </html>

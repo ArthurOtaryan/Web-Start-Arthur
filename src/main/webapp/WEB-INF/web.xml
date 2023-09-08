@@ -5,15 +5,6 @@
 <web-app>
   <display-name>Archetype Created Web Application</display-name>
 
-  <servlet>
-    <servlet-name>test</servlet-name>
-    <servlet-class>com.smartcode.web.controller.TestServlet</servlet-class>
-  </servlet>
-
-  <servlet-mapping>
-    <servlet-name>test</servlet-name>
-    <url-pattern>/test</url-pattern>
-  </servlet-mapping>
 
   <servlet>
     <servlet-name>homeServlet</servlet-name>
@@ -63,6 +54,16 @@
   <servlet-mapping>
     <servlet-name>commentUpdate</servlet-name>
     <url-pattern>/commentUpdate</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <servlet-name>changePassword</servlet-name>
+    <servlet-class>com.smartcode.web.controller.ChangePasswordServlet</servlet-class>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>changePassword</servlet-name>
+    <url-pattern>/changePassword</url-pattern>
   </servlet-mapping>
 
 </web-app>

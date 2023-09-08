@@ -15,14 +15,15 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 public class CommentServlet extends HttpServlet {
+    CommentRepository commentRepository = new CommentRepositoryImpl();
+
+    CommentService commentService = new CommentServiceImpl(commentRepository);
+
+    UserRepository userRepository = new UserRepositoryImpl();
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-        CommentRepository commentRepository = new CommentRepositoryImpl();
 
-        CommentService commentService = new CommentServiceImpl(commentRepository);
-
-        UserRepository userRepository = new UserRepositoryImpl();
 
         User user = userRepository.getById((Integer)req.getSession().getAttribute("id"));
 
@@ -35,9 +36,6 @@ public class CommentServlet extends HttpServlet {
 
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-        CommentRepository commentRepository = new CommentRepositoryImpl();
-
-        CommentService commentService = new CommentServiceImpl(commentRepository);
 
         req.getSession().setAttribute("title", req.getParameter("title"));
 

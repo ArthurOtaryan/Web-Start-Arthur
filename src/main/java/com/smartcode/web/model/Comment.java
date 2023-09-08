@@ -8,16 +8,24 @@ import lombok.Setter;
 
 @Setter
 @Getter
+@AllArgsConstructor
 @NoArgsConstructor
 
 public class Comment {
-    public Comment(String title, String description, Integer user_id) {
-        this.title = title;
-        this.description = description;
-        User_id = user_id;
-    }
-private Integer id;
+
+
+
     private String title;
     private String description;
     private Integer User_id;
+
+
+
+    @Override
+    public String toString() {
+        return "Comment{" +
+                "title='" + title + '\'' +
+                ", description='" + description + '\'' +
+                '}';
+    }
 }

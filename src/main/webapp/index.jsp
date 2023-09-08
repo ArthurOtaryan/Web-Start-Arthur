@@ -6,8 +6,7 @@
     <style>
         body {
 
-            background: #E87D2D;
-            background: linear-gradient(135deg, #E87D2D, #CCB08C);
+            background: linear-gradient(135deg, #8E0E00, #1F1C18);
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             text-align: center;
             margin: 0;
@@ -32,7 +31,7 @@
         }
 
         .gradient-button {
-            background: linear-gradient(315deg, #A48A3B, #4E43B5);
+            background: linear-gradient(315deg, #b2aca5, #da200c);
             color: rgba(255, 255, 255, 0.62);
             padding: 10px 20px;
             border: none;

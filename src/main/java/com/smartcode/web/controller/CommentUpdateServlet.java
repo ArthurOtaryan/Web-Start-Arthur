@@ -12,14 +12,14 @@ import java.io.IOException;
 
 public class CommentUpdateServlet extends HttpServlet {
 
+    CommentRepository commentRepository = new CommentRepositoryImpl();
 
+
+    Comment comment = new Comment();
 
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-        CommentRepository commentRepository = new CommentRepositoryImpl();
 
-
-        Comment comment = new Comment();
 
         comment.setTitle((String) req.getSession().getAttribute("title"));
 
@@ -28,9 +28,7 @@ public class CommentUpdateServlet extends HttpServlet {
         comment.setUser_id((Integer) req.getSession().getAttribute("id"));
 
         commentRepository.edit(comment);
-
         req.getSession().removeAttribute("title");
-        req.getSession().removeAttribute("description");
 
         req.getRequestDispatcher("home.jsp").forward(req, resp);
     }

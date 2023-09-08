@@ -1,5 +1,6 @@
 package com.smartcode.web.repository.user.impl;
 
+import com.smartcode.web.exception.ValidationException;
 import com.smartcode.web.model.User;
 import com.smartcode.web.repository.user.UserRepository;
 import com.smartcode.web.utils.DataSource;
@@ -223,5 +224,22 @@ public class UserRepositoryImpl implements UserRepository {
             throw new RuntimeException(e);
         }
         return false;
+    }
+
+
+    public boolean changePassword(User user, String oldPass, String newPass) {
+        if (user == null || oldPass == null || newPass == null || oldPass.isEmpty() || newPass.isEmpty()) {
+            throw new IllegalArgumentException("Invalid input. Please provide both old and new passwords.");
+        }
+
+        if (!user.getPassword().equals(oldPass)) {
+            throw new ValidationException("Wrong password");
+        }
+
+        user.setPassword(newPass);
+
+        update(user);
+
+        return true;
     }
 }

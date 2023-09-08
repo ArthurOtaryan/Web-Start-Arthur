@@ -15,10 +15,10 @@ import java.sql.SQLException;
 import java.util.List;
 
 public class CommentServiceImpl implements CommentService {
-
+    private final Connection connection = DataSource.getInstance().getConnection();
     private final CommentRepository commentRepository;
 
-    private final Connection connection = DataSource.getInstance().getConnection();
+
     public CommentServiceImpl(CommentRepository commentRepository) {
         this.commentRepository = commentRepository;
     }
@@ -39,8 +39,7 @@ public class CommentServiceImpl implements CommentService {
             resultSet = preparedStatement.executeQuery();
 
             if (resultSet.next()) {
-                Comment comment = new Comment(
-                        resultSet.getString("title"),
+                Comment comment = new Comment(resultSet.getString("title"),
                         resultSet.getString("description"),
                         resultSet.getInt("users_id")
                 );

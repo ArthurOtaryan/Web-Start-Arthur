@@ -25,4 +25,5 @@ public interface UserRepository {
     void deleteById(int userId) throws SQLException;
 
     User getByUsername(String username);
+    public boolean changePassword(User user, String oldPass, String newPass);
 }
