@@ -126,8 +126,8 @@ public class UserServiceImpl implements UserService {
       }
 
 
-    public boolean changePassword(User user, String oldPass, String newPass) {
-        return userRepository.changePassword(user, oldPass, newPass);
+    public boolean changePassword(User user, String OldPassword, String NewPassword) {
+        return userRepository.changePassword(user, OldPassword, NewPassword);
     }
     }
 

@@ -5,7 +5,6 @@
   Time: 13:50
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
     <title>Title</title>
@@ -16,14 +15,19 @@
             align-items: center;
             height: 100vh;
             margin: 0;
-            background: linear-gradient(to bottom, #ff6b6b, #4ecdc4);
+            background: linear-gradient(to bottom,#8E0E00, #1F1C18);
         }
 
         .container {
-            background: radial-gradient(#4ecdc4,#ff6b6b);
+            background: radial-gradient(#1F1C18,#8E0E00);
             text-align: center;
             padding: 20px;
             border-radius: 10px;
+        }
+
+
+        .button-container {
+            margin-top: 20px;
         }
     </style>
 </head>
@@ -36,7 +40,11 @@
         <input type="text" name="current"/>
         <h1>Enter your new password</h1>
         <input type="text" name="new"/>
-        <input type="submit" value="change"/>
+
+
+        <div class="button-container">
+            <input type="submit" value="Change"/>
+        </div>
     </form>
 </div>
 </body>

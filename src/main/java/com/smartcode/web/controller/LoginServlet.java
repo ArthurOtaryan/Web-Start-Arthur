@@ -1,9 +1,8 @@
 package com.smartcode.web.controller;
 
 import com.smartcode.web.exception.ValidationException;
-import com.smartcode.web.model.User;
 import com.smartcode.web.repository.user.UserRepository;
-import com.smartcode.web.repository.user.impl.UserRepositoryImpl;
+import com.smartcode.web.repository.user.impl.UserRepositoryJDBCImpl;
 import com.smartcode.web.service.user.UserService;
 import com.smartcode.web.service.user.impl.UserServiceImpl;
 
@@ -12,11 +11,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.math.BigDecimal;
-import java.sql.SQLException;
 
 public class LoginServlet extends HttpServlet {
-private final UserRepository UserRepository = new UserRepositoryImpl();
+private final UserRepository UserRepository = new UserRepositoryJDBCImpl();
 private final UserService UserService = new UserServiceImpl(UserRepository);
 
     @Override

@@ -2,7 +2,7 @@
 <%@ page import="com.smartcode.web.repository.comment.impl.CommentRepositoryImpl" %>
 <%@ page import="com.smartcode.web.model.Comment" %>
 <%@ page import="java.util.List" %>
-<%@ page import="com.smartcode.web.repository.user.impl.UserRepositoryImpl" %>
+<%@ page import="com.smartcode.web.repository.user.impl.UserRepositoryJDBCImpl" %>
 <%@ page import="com.smartcode.web.repository.user.UserRepository" %>
 <html lang="en">
 <head>
@@ -103,7 +103,7 @@
   </tr>
   <%
     CommentRepository commentRepository = new CommentRepositoryImpl();
-    UserRepository userRepository = new UserRepositoryImpl();
+    UserRepository userRepository = new UserRepositoryJDBCImpl();
     List<Comment> list = commentRepository.getAll((int) request.getSession().getAttribute("id"));
     for (int i = 0; i < list.size(); i++) {
   %>

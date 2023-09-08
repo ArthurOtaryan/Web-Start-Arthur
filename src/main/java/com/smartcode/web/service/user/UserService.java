@@ -24,6 +24,6 @@ public interface UserService {
 
 
     void login(String username, String password);
-  boolean changePassword(User user, String oldPass, String newPass);
+  boolean changePassword(User user, String oldPassword, String newPassword);
 
 }

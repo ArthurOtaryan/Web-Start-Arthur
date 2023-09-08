@@ -5,7 +5,7 @@ import com.smartcode.web.model.User;
 import com.smartcode.web.repository.comment.CommentRepository;
 import com.smartcode.web.repository.comment.impl.CommentRepositoryImpl;
 import com.smartcode.web.repository.user.UserRepository;
-import com.smartcode.web.repository.user.impl.UserRepositoryImpl;
+import com.smartcode.web.repository.user.impl.UserRepositoryJDBCImpl;
 import com.smartcode.web.service.comment.CommentService;
 import com.smartcode.web.service.comment.impl.CommentServiceImpl;
 import com.smartcode.web.service.user.UserService;
@@ -25,7 +25,7 @@ public class HomeServlet extends HttpServlet {
         String title = req.getParameter("title");
         String description = req.getParameter("description");
 
-        UserRepository userRepository = new UserRepositoryImpl();
+        UserRepository userRepository = new UserRepositoryJDBCImpl();
 
         UserService userService = new UserServiceImpl(userRepository);
 

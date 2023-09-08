@@ -12,11 +12,11 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class UserRepositoryImpl implements UserRepository {
+public class UserRepositoryJDBCImpl implements UserRepository {
 
     private Connection connection = DataSource.getInstance().getConnection();
 
-    public UserRepositoryImpl() {
+    public UserRepositoryJDBCImpl() {
         try {
             connection.createStatement().execute(
                     """
@@ -170,7 +170,11 @@ public class UserRepositoryImpl implements UserRepository {
 
     @Override
     public void deleteAll() throws SQLException {
-
+        try {
+            PreparedStatement preparedStatement = connection.prepareStatement("DELETE FROM users ");
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     @Override
@@ -227,16 +231,16 @@ public class UserRepositoryImpl implements UserRepository {
     }
 
 
-    public boolean changePassword(User user, String oldPass, String newPass) {
-        if (user == null || oldPass == null || newPass == null || oldPass.isEmpty() || newPass.isEmpty()) {
+    public boolean changePassword(User user, String OldPassword, String NewPassword) {
+        if (user == null || OldPassword == null || NewPassword == null || OldPassword.isEmpty() || NewPassword.isEmpty()) {
             throw new IllegalArgumentException("Invalid input. Please provide both old and new passwords.");
         }
 
-        if (!user.getPassword().equals(oldPass)) {
+        if (!user.getPassword().equals(OldPassword)) {
             throw new ValidationException("Wrong password");
         }
 
-        user.setPassword(newPass);
+        user.setPassword(NewPassword);
 
         update(user);
 

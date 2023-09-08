@@ -3,7 +3,7 @@ package com.smartcode.web.controller;
 import com.smartcode.web.exception.ValidationException;
 import com.smartcode.web.model.User;
 import com.smartcode.web.repository.user.UserRepository;
-import com.smartcode.web.repository.user.impl.UserRepositoryImpl;
+import com.smartcode.web.repository.user.impl.UserRepositoryJDBCImpl;
 import com.smartcode.web.service.user.UserService;
 import com.smartcode.web.service.user.impl.UserServiceImpl;
 
@@ -16,15 +16,10 @@ import java.io.IOException;
 
 public class ChangePasswordServlet extends HttpServlet{
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        UserRepository userRepository = new UserRepositoryJDBCImpl();
 
+        UserService userService = new UserServiceImpl(userRepository);
         try {
-
-
-
-            UserRepository userRepository = new UserRepositoryImpl();
-
-            UserService userService = new UserServiceImpl(userRepository);
-
 
             User user = userRepository.getById((Integer)req.getSession().getAttribute("id"));
 

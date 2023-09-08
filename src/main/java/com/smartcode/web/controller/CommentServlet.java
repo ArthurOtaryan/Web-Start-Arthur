@@ -4,7 +4,7 @@ import com.smartcode.web.model.User;
 import com.smartcode.web.repository.comment.CommentRepository;
 import com.smartcode.web.repository.comment.impl.CommentRepositoryImpl;
 import com.smartcode.web.repository.user.UserRepository;
-import com.smartcode.web.repository.user.impl.UserRepositoryImpl;
+import com.smartcode.web.repository.user.impl.UserRepositoryJDBCImpl;
 import com.smartcode.web.service.comment.CommentService;
 import com.smartcode.web.service.comment.impl.CommentServiceImpl;
 
@@ -19,7 +19,7 @@ public class CommentServlet extends HttpServlet {
 
     CommentService commentService = new CommentServiceImpl(commentRepository);
 
-    UserRepository userRepository = new UserRepositoryImpl();
+    UserRepository userRepository = new UserRepositoryJDBCImpl();
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 

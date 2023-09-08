@@ -2,7 +2,7 @@ package com.smartcode.web.controller;
 
 import com.smartcode.web.model.User;
 import com.smartcode.web.repository.user.UserRepository;
-import com.smartcode.web.repository.user.impl.UserRepositoryImpl;
+import com.smartcode.web.repository.user.impl.UserRepositoryJDBCImpl;
 import com.smartcode.web.service.user.UserService;
 import com.smartcode.web.service.user.impl.UserServiceImpl;
 
@@ -15,7 +15,7 @@ import java.math.BigDecimal;
 import java.sql.SQLException;
 
 public class RegisterServlet extends HttpServlet {
-private final UserRepository UserRepository = new UserRepositoryImpl();
+private final UserRepository UserRepository = new UserRepositoryJDBCImpl();
 private final UserService UserService = new UserServiceImpl(UserRepository);
 
     @Override

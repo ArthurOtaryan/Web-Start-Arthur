@@ -5,7 +5,6 @@
     <title>Welcome page</title>
     <style>
         body {
-
             background: linear-gradient(135deg, #8E0E00, #1F1C18);
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             text-align: center;
@@ -16,6 +15,7 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
+            position: relative;
         }
 
         h1 {
@@ -45,9 +45,20 @@
         .gradient-button:hover {
             background: linear-gradient(315deg, #AAC594, #33A93D);
         }
+
+
+        .corner-image {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            width: 100px;
+            height: auto;
+        }
     </style>
 </head>
 <body>
+
+<img class="corner-image" src="img/11097264.jpg" alt="Corner Image">
 
 <h1>Welcome to our shop</h1>
 
@@ -60,6 +71,5 @@
         Login
     </button>
 </div>
-
 </body>
 </html>

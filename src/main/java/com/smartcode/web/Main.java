@@ -1,19 +1,15 @@
 package com.smartcode.web;
 
-import com.smartcode.web.model.User;
 import com.smartcode.web.repository.user.UserRepository;
-import com.smartcode.web.repository.user.impl.UserRepositoryImpl;
+import com.smartcode.web.repository.user.impl.UserRepositoryJDBCImpl;
 import com.smartcode.web.service.user.UserService;
 import com.smartcode.web.service.user.impl.UserServiceImpl;
 
-import java.io.IOException;
-import java.math.BigDecimal;
 import java.sql.SQLException;
-import java.util.List;
 
 public class Main {
     public static void main(String[] args) throws SQLException {
-        UserRepository userRepository = new UserRepositoryImpl();
+        UserRepository userRepository = new UserRepositoryJDBCImpl();
         UserService userService = new UserServiceImpl(userRepository);
 
 
